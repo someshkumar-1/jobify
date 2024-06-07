@@ -47,18 +47,20 @@ export default function Navbar() {
 
       {/* Mobile Hamburger Menu */}
       {open && (
-        <ul className="absolute sm:hidden right-0 top-20 w-[200px] py-8 text-sm h-screen shadow-xl flex flex-col gap-4 items-center text-gray-600">
-          <li>Home</li>
-          <li>Find jobs</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li className="bg-green-600 px-4 py-2 text-white rounded-md">
-            Login
-          </li>
-          <li className="bg-green-600 px-4 py-2 text-white rounded-md">
-            Register
-          </li>
-        </ul>
+
+          <ul className="absolute sm:hidden right-0 top-20 bg-white w-[200px] py-8 text-sm h-screen shadow-xl flex flex-col gap-4 items-center text-gray-600">
+            <li>Home</li>
+            <li>Find jobs</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li className="bg-green-600 px-4 py-2 text-white rounded-md">
+              Login
+            </li>
+            <li className="bg-green-600 px-4 py-2 text-white rounded-md">
+              Register
+            </li>
+          </ul>
+
       )}
     </div>
   );
