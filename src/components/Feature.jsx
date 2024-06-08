@@ -47,7 +47,7 @@ export default function Feature() {
         tailored to your career goals.
       </p>
       <div className="mt-8 flex flex-col gap-8  items-center md:flex-row md:justify-between  md:text-start lg:px-10 py-8">
-        <div className="flex flex-col w-[300px] md:w-[350px]  shadow-lg bg-gray-100 p-4 ">
+        <div className="flex flex-col w-[300px] md:w-[350px]  shadow-lg bg-gray-100/30 p-4 ">
           <h2 className="text-center text-2xl font-semibold text-gray-600">
             Over 10K+
           </h2>
@@ -59,7 +59,7 @@ export default function Feature() {
             industries, all in one place
           </p>
         </div>
-        <div className="flex flex-col w-[300px] md:w-[350px] shadow-lg bg-gray-100 p-4 ">
+        <div className="flex flex-col w-[300px] md:w-[350px] shadow-lg bg-gray-100/30 p-4 ">
           <h2 className="text-center text-2xl font-semibold text-gray-600">
             Over 2.5K+
           </h2>
@@ -71,7 +71,7 @@ export default function Feature() {
             professionals like you
           </p>
         </div>
-        <div className="flex flex-col w-[300px] md:w-[350px] shadow-lg bg-gray-100   p-4 ">
+        <div className="flex flex-col w-[300px] md:w-[350px] shadow-lg bg-gray-100/30   p-4 ">
           <h2 className="text-center text-2xl font-semibold text-gray-600">
             Over 40K+
           </h2>
