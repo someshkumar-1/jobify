@@ -88,7 +88,7 @@ export default function Testimonials() {
                     alt={testimonial.name}
                     className="w-28 h-28 rounded-full mx-auto mb-4 object-cover"
                   />
-                  <p className="italic text-sm md:text-lg text-gray-600">{testimonial.testimonial}</p>
+                  <p className="text-sm md:text-lg text-gray-600">{testimonial.testimonial}</p>
                   <h4 className="font-bold text-xl mt-4 text-green-600">{testimonial.name}</h4>
                   <p className="text-sm text-gray-500">
                     {testimonial.designation}, {testimonial.company}

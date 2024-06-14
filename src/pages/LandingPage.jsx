@@ -1,8 +1,8 @@
-import Feature from "../components/Feature";
-import Footer from "../components/Footer";
-import Hero from "../components/Hero";
-import Navbar from "../components/Navbar";
-import Testimonials from "../components/Testimonials";
+import Feature from "../components/ui/Feature";
+import Footer from "../components/ui/Footer";
+import Hero from "../components/ui/Hero";
+import Navbar from "../components/ui/Navbar";
+import Testimonials from "../components/ui/Testimonials";
 
 
 export default function LandingPage() {

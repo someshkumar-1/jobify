@@ -25,10 +25,10 @@ export default function Navbar() {
         </div>
         <div className="hidden sm:flex gap-6 text-gray-600 text-sm">
           <button className="bg-green-600 text-white px-4 py-2 rounded-md">
-            <Link to={"/login"}>Login</Link>
+            <Link to={"/auth"}>Login</Link>
           </button>
           <button className="border-2 border-green-600 px-4 py-2 rounded-md">
-            <Link to={"/register"}>Register Now</Link>
+            <Link to={"/auth"}>Register Now</Link>
           </button>
         </div>
         <div className="sm:hidden">
