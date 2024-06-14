@@ -1,22 +1,27 @@
 import { useState } from "react";
 import Alert from "../components/ui/Alert";
+import { useAppContext } from "../context/appContext";
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    showAlert: false,
     isMember: true,
   });
+
+  const contextValues = useAppContext();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormData({ ...formData, showAlert: true });
-    setTimeout(() => setFormData({ ...formData, showAlert: false }), 3000);
+    const { name, email, password } = formData;
+
+    if (!email || !password || !isMember && !name) {
+      contextValues.displayAlert();
+    }
   };
 
   return (
@@ -26,7 +31,7 @@ export default function RegisterPage() {
           {formData.isMember ? "Login " : "Register "} for Jobify
         </h2>
         <form onSubmit={handleSubmit}>
-          {formData.showAlert && <Alert />}
+          {contextValues.showAlert && <Alert />}
           {!formData.isMember && (
             <div className="mb-4">
               <label htmlFor="name" className=" text-gray-600">
