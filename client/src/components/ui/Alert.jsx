@@ -5,7 +5,11 @@ export default function Alert() {
 
   return (
     <div
-      className={`bg-${alertType}-100 p-2 text-${alertType}-500 text-center mb-4 rounded-md`}
+      className={`${
+        alertType === "danger" ? "bg-red-100" : "bg-green-100"
+      } p-2 ${
+        alertType === "danger" ? "text-red-500" : "text-green-500"
+      } text-center mb-4 rounded-md`}
     >
       {alertText}
     </div>
