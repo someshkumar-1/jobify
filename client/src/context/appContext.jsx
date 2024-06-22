@@ -3,6 +3,7 @@ import reducer from "./reducer";
 import {
   CLEAR_ALERT,
   DISPLAY_ALERT,
+  LOGOUT_USER,
   // LOGIN_USER_BEGIN,
   // LOGIN_USER_ERROR,
   // LOGIN_USER_SUCCESS,
@@ -12,12 +13,13 @@ import {
   SETUP_USER_BEGIN,
   SETUP_USER_ERROR,
   SETUP_USER_SUCCESS,
+  TOGGLE_SIDEBAR,
 } from "./action";
 import axios from "axios";
 
 const AppContext = createContext();
 
-const initialState = {
+export const initialState = {
   isLoading: false,
   showAlert: false,
   alertText: "",
@@ -26,6 +28,7 @@ const initialState = {
   token: localStorage.getItem("token"),
   userLocation: localStorage.getItem("location") || "",
   jobLocation: localStorage.getItem("location") || "",
+  showSideBar: false,
 };
 
 const addUserToLS = ({ token, user, location }) => {
@@ -33,7 +36,7 @@ const addUserToLS = ({ token, user, location }) => {
   localStorage.setItem("token", token);
   localStorage.setItem("location", location);
 };
-const RemoveUserFromLS = ({ token, user, location }) => {
+const removeUserFromLS = () => {
   localStorage.removeItem("user");
   localStorage.removeItem("token");
   localStorage.removeItem("location");
@@ -49,6 +52,15 @@ const AppProvider = ({ children }) => {
   const clearAlert = () => {
     dispatch({ type: CLEAR_ALERT });
   };
+
+  const toggleSideBar = () => {
+    dispatch({ type: TOGGLE_SIDEBAR });
+  };
+
+  const logoutUser = () =>{
+    removeUserFromLS()
+    dispatch({type: LOGOUT_USER})
+  }
 
   const setupUser = async (currentUser, actionType) => {
     dispatch({ type: SETUP_USER_BEGIN });
@@ -79,7 +91,7 @@ const AppProvider = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={{ ...state, displayAlert, setupUser }}>
+    <AppContext.Provider value={{ ...state, displayAlert, setupUser, toggleSideBar, logoutUser }}>
       {children}
     </AppContext.Provider>
   );

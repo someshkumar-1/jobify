@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Alert from "../components/ui/Alert";
 import { useAppContext } from "../context/appContext";
 import { useNavigate } from "react-router";
+import FormRow from "../components/ui/FormRow";
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -36,9 +37,9 @@ export default function RegisterPage() {
     const currentUser = { name, email, password };
 
     if (isMember) {
-      setupUser(currentUser, 'login');
+      setupUser(currentUser, "login");
     } else {
-      setupUser(currentUser, 'register');
+      setupUser(currentUser, "register");
     }
   };
 
@@ -51,46 +52,30 @@ export default function RegisterPage() {
         <form onSubmit={handleSubmit}>
           {showAlert && <Alert />}
           {!formData.isMember && (
-            <div className="mb-4">
-              <label htmlFor="name" className=" text-gray-600">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                value={formData.name}
-                name="name"
-                className="mt-2 p-2 w-full border text-gray-600  rounded-md focus:outline-none focus:ring-2 focus:ring-green-600"
-                onChange={handleChange}
-              />
-            </div>
+            <FormRow
+              handleChange={handleChange}
+              type="text"
+              name="name"
+              labelText="Name"
+              value={formData.name}
+            />
           )}
-          <div className="mb-4">
-            <label htmlFor="email" className="text-gray-600">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={formData.email}
-              name="email"
-              className="mt-2 p-2 w-full text-gray-600 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-600"
-              onChange={handleChange}
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="password" className="text-gray-600">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              value={formData.password}
-              name="password"
-              className="mt-2 p-2 w-full text-gray-600 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-600"
-              onChange={handleChange}
-            />
-          </div>
+          <FormRow
+            handleChange={handleChange}
+            type="email"
+            name="email"
+            labelText="Email"
+            value={formData.email}
+          />
+
+          <FormRow
+            handleChange={handleChange}
+            type="password"
+            name="password"
+            labelText="Password"
+            value={formData.password}
+          />
+
           <button
             type="submit"
             className="w-full bg-green-600 text-white py-2 mb-2 rounded-md hover:bg-green-700 transition duration-200  disabled:cursor-not-allowed"

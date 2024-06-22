@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Feature from "../components/ui/Feature";
 import Footer from "../components/ui/Footer";
 import Hero from "../components/ui/Hero";
@@ -6,13 +7,14 @@ import Testimonials from "../components/ui/Testimonials";
 
 
 export default function LandingPage() {
+ 
   return (
     <>
-        <Navbar />
-        <Hero />
-        <Feature />
-        <Testimonials />
-        <Footer />
+      <Navbar />
+      <Hero />
+      <Feature />
+      <Testimonials />
+      <Footer />
     </>
-  )
+  );
 }
